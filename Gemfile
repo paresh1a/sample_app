@@ -37,6 +37,8 @@ end
 group :test do 
  gem 'rspec', '~> 3.1.0' 
  gem 'webrat', '~> 0.7.3'
+ gem 'ZenTest'
+ gem 'autotest-rails'
 end
 
 # Use ActiveModel has_secure_password
