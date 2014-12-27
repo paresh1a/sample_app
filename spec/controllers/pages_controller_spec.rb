@@ -5,7 +5,12 @@ RSpec.describe PagesController, :type => :controller do
   describe "GET home" do
     it "returns http success" do
       get :home
-      expect(response).to have_http_status(:success)
+     expect(response).to have_http_status(:success)
+    end
+    
+    it "should have the right title" do
+      get :home
+      response.should have_selector("title", :content => "Sample App | Home")
     end
   end
 
@@ -14,12 +19,22 @@ RSpec.describe PagesController, :type => :controller do
       get :contact
       expect(response).to have_http_status(:success)
     end
+    
+    it "should have the right title" do
+      get :contact
+      response.should have_selector("title", :content => "Sample App | Contact")
+    end
   end
   
   describe "GET about about" do
     it "returns http success" do
       get :about
       expect(response).to have_http_status(:success)
+    end
+    
+    it "should have the right title" do
+      get :about
+      response.should have_selector("title", :content => "Sample App | About")
     end
   end
   
