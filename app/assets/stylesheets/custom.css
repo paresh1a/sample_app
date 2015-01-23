@@ -195,6 +195,13 @@ div.field, div.actions{
   list-style: square;
 }
 
+u1.users{
+  margin-top: 1em;
+}
+
+.users 1i{
+  list-style: none;
+} 
 
 
 

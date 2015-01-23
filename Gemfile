@@ -10,6 +10,8 @@ gem 'rails', '4.1.8'
 
 gem 'gravatar_image_tag', '~> 1.2.0'
 
+gem 'will_paginate', '~> 3.0.7'
+
  # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,6 +38,7 @@ gem 'rails_12factor', group: :production
 group :development do 
   gem 'rspec-rails', '~> 3.1.0' 
   gem 'annotate', '~> 2.6.5' 
+  gem 'faker', '~> 1.4.3' 
 end
 
 group :test do 
