@@ -30,6 +30,10 @@ module SessionsHelper
     redirect_to(session[:return_to] || default)
     clear_return_to
   end
+  
+  def authenticate
+    deny_access unless signed_in?
+  end
 
 private
   
@@ -47,6 +51,11 @@ private
   
   def clear_return_to
     session[:return_to] = nil
+  end
+  
+  def deny_access
+    store_location
+    redirect_to signin_path, :notice => "Please sign in to access this page."
   end
     
 end

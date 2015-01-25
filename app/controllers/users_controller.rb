@@ -6,6 +6,7 @@ class UsersController < ApplicationController
                                          
   def show
     @user  = User.find(params[:id])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
   end
   
@@ -46,11 +47,6 @@ class UsersController < ApplicationController
     @users = User.paginate(:page => params[:page])
   end
   
-  def show
-    @user  = User.find(params[:id])
-    @title = @user.name
-  end
-  
   def destroy 
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
@@ -61,10 +57,6 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:name,:email,:password,:password_confirmation)
-    end
-    
-    def authenticate
-      deny_access unless signed_in?
     end
     
     def correct_user
